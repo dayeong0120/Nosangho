@@ -28,10 +28,10 @@ model User {
 }
 
 model Canvas {
-  id     Int    @id @default(autoincrement())
-  userId Int    @map("user_id")
-  user   User   @relation(fields: [userId], references: [id])
-  title  String @db.VarChar(100)
+  id     Int     @id @default(autoincrement())
+  userId Int     @map("user_id")
+  user   User    @relation(fields: [userId], references: [id])
+  title  String? @db.VarChar(100)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
