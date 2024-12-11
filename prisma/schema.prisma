@@ -67,3 +67,12 @@ model additionalImage {
 
   @@map("additional_image")
 }
+
+model Session {
+  id        String   @id
+  sid       String   @unique //session id  : session 식별
+  data      String   @db.VarChar(2000)
+  expiresAt DateTime @map("expire_at")
+
+  @@map("session")
+}
