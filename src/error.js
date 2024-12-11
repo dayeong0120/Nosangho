@@ -11,3 +11,17 @@ export class DuplicateUserEmailError extends Error {
         this.data = data
     }
 }
+
+//로그인 시 이메일이나 비밀번호 틀림 
+export class NotCorrectUserError extends Error {
+    errorCode = "U002"
+
+
+    constructor(data) {
+        const reason = "존재하지 않는 이메일이거나 비밀번호가 맞지 않습니다."
+        super(reason)
+        this.reason = reason
+        this.data = data
+    }
+}
+

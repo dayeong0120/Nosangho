@@ -21,6 +21,7 @@ export const bodyToUser = (body) => {
 
 export const responseFromUser = (user) => {
     return {
+        id: user.id,
         email: user.email,
         password: user.password,
         name: user.name,

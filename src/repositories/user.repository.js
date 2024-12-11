@@ -30,3 +30,16 @@ export const getUser = async (userId) => {
     return user
 }
 
+// 로그인 
+export const loginUser = async (data) => {
+    const user = await prisma.user.findFirst({
+        where: {
+            email: data.email,
+            password: data.password
+        }
+    })
+
+    if (user === null) return null
+
+    return user
+}

@@ -5,7 +5,7 @@ import session from "express-session"
 import { PrismaSessionStore } from "@quixo3/prisma-session-store"
 import { prisma } from "./db.config.js"
 
-import { handleUserSignUp } from './controllers/user.controller.js'
+import { handleUserSignUp, handleUserLogin } from './controllers/user.controller.js'
 
 dotenv.config()
 
@@ -55,7 +55,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+//자체 회원가입 API
 app.post("/users/signup", handleUserSignUp)
+app.post("/users/login", handleUserLogin)
 
 
 //전역 오류 처리 미들웨어 
