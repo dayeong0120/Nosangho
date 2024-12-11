@@ -1,10 +1,11 @@
 import express from 'express'
 import dotenv from "dotenv"
 import cors from "cors"
-import { session } from 'passport'
 import session from "express-session"
 import { PrismaSessionStore } from "@quixo3/prisma-session-store"
 import { prisma } from "./db.config.js"
+
+import { handleUserSignUp } from './controllers/user.controller.js'
 
 dotenv.config()
 
@@ -53,6 +54,8 @@ app.use(session({
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
+
+app.post("/users/signup", handleUserSignUp)
 
 
 //전역 오류 처리 미들웨어 
