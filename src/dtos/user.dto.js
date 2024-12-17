@@ -3,6 +3,7 @@ export const bodyToUser = (body) => {
 
     const result = {}
 
+    //수정 PATCH 때 재사용하기 위함 
     if (body.email !== undefined) result.email = body.email
     if (body.password !== undefined) result.password = body.password
     if (body.name !== undefined) result.name = body.name

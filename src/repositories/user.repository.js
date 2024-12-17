@@ -43,3 +43,14 @@ export const loginUser = async (data) => {
 
     return user
 }
+
+//모든 유저의 id값 가져오기
+export const getAllUserIds = async () => {
+    const users = await prisma.user.findMany({
+        select: { id: true }, // id만 선택
+    });
+
+    const userIds = users.map(user => user.id)
+
+    return userIds
+}
