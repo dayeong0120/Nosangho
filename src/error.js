@@ -25,3 +25,16 @@ export class NotCorrectUserError extends Error {
     }
 }
 
+//캔버스 생성 시 이미 해당 달의 캔버스가 존재 
+export class ExistMonthCanvasError extends Error {
+    errorCode = "C001"
+
+
+    constructor(data) {
+        const reason = "이미 해당 달의 캔버스가 존재합니다"
+        const nowMonth = new Date().getMonth()
+        super(reason)
+        this.reason = reason
+        this.data = { data, nowMonth: nowMonth }
+    }
+}
